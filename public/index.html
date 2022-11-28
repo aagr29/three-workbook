@@ -424,9 +424,13 @@
 			else return;
 
 		}
+
+
+		// 'https://feature-detection.virtual-tas-pipeline.real-time.community/api/worker/catenary/construct?key=AIzaSyBhmSYn1IaOu88QgC2kZ7ae0g0325czLyU&usr=test&pwd=test'
+		// 'http://localhost:80/jsonpayload'
 		async function getResponse(payload) {
 			const response = await fetch(
-				'http://localhost:80/jsonpayload',
+				'https://feature-detection.virtual-tas-pipeline.real-time.community/api/worker/catenary/construct?key=AIzaSyBhmSYn1IaOu88QgC2kZ7ae0g0325czLyU&usr=test&pwd=test',
 				{
 					method: 'post',
 					headers: {
@@ -439,6 +443,7 @@
 				throw new Error(`HTTP error! status: ${response.status}`);
 			}
 			const data_res = await response.json();
+			console.log('api_data',data_res)
 			return data_res.catPoints
 
 		}
@@ -464,6 +469,7 @@
 				let data1 = []
 				let coordinates = []
 				a.then((value) => {
+					console.log(value)
 					data1 = value
 					for (var i = 0; i < data1.length; i++) {
 
